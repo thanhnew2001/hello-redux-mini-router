@@ -27,8 +27,11 @@ function students(state = initialState, action){
 
 function editedStudent(state = {}, action){
     switch(action.type){
+        case 'ADDNEW_STUDENT':
+            return {id: '', name: '', isEditing: false}
         case 'EDIT_STUDENT':
-            return action.payload
+            var newState = Object.assign({}, action.payload, {isEditing: true})
+            return newState
         default:
         return state
     }
