@@ -22,6 +22,7 @@ class App extends React.Component{
                 <StudentForm editedStudent={this.props.editedStudent}
                     addStudent={(s)=>this.props.dispatch({type: 'ADD_STUDENT', payload: s})}
                     updateStudent={(s)=>this.props.dispatch({type: 'UPDATE_STUDENT', payload: s})}
+                    addNewStudent={(s)=>this.props.dispatch({type: 'ADDNEW_STUDENT'})}
                     />
                 <StudentList students={this.props.students} 
                     deleteStudent={(id)=>this.handleDelete(id)}
