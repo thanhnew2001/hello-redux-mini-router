@@ -27,7 +27,7 @@ export default class StudentForm extends React.Component{
     }
 
     handleAddnew(){
-        this.setState({id: '', name: '', isEditing: false})
+        this.props.addNewStudent()
     }
 
     render(){
@@ -38,7 +38,7 @@ export default class StudentForm extends React.Component{
                     <input type="text" name='id' value={this.state.id} onChange={this.handleChange.bind(this)}/>
                    <input type="text" name='name' value={this.state.name} onChange={this.handleChange.bind(this)}/>
                    <button onClick={this.handleSave.bind(this)}>Save</button>
-                   <button onClick={this.handleAddnew.bind(this)}>Add</button>
+                   <button onClick={this.handleAddnew.bind(this)}>Add new</button>
                </div>
             </div>
         )
