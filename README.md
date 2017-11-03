@@ -10,25 +10,25 @@ There is a simpler way to do it. Using window.location, we can show/hide a compo
 
 We will need a component named Root to play the role of the App componnet. This Root component will have a menu bar and a conditional display to toggle corresponding components:
 
-class Root extends React.Component{
-    render(){
-        let currentPath = window.location.pathname
+    class Root extends React.Component{
+        render(){
+            let currentPath = window.location.pathname
 
-        return(
-            <div>
+            return(
                 <div>
-                    <a href='/home'>Home</a> |
-                    <a href='/about'>About</a>
-                </div>   
+                    <div>
+                        <a href='/home'>Home</a> |
+                        <a href='/about'>About</a>
+                    </div>   
 
-                {currentPath.includes('/about')? 
-                    <About />:
-                    <App editedStudent={this.props.editedStudent} dispatch={this.props.dispatch} students={this.props.students} />
-                }
-            </div>    
-        )
+                    {currentPath.includes('/about')? 
+                        <About />:
+                        <App editedStudent={this.props.editedStudent} dispatch={this.props.dispatch} students={this.props.students} />
+                    }
+                </div>    
+            )
+        }
     }
-}
 
 Notes:
 + We add a menu bar that contains 2 links: Home and About on top of the Root component
@@ -36,6 +36,7 @@ Notes:
 + We use the includes method to check if the URL contains a specific value
 + Make sure that we inject properties for "dispatch". We will need the dispatch function for child components.
 + We need to add a historyApiFallback property to our devServer in webpack.config.js
-    devServer: {
-       historyApiFallback: true
-    }
+
+        devServer: {
+           historyApiFallback: true
+        }
