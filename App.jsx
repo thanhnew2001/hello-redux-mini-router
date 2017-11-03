@@ -1,10 +1,11 @@
 import React from 'react'
-import {connect} from 'react-redux'
+
 import StudentList from './StudentList.jsx'
 import StudentForm from './StudentForm.jsx'
 import {editStudent} from './main.js'
 
-class App extends React.Component{
+
+export default class App extends React.Component{
 
     handleDelete(id){
         if(confirm('Do you want to delete '+id)){
@@ -33,10 +34,4 @@ class App extends React.Component{
     }
 }
 
-function mapStateToProps(centralState){
-    return{
-        students: centralState.students,
-        editedStudent: centralState.editedStudent
-    }
-}
-export default connect(mapStateToProps)(App)
+

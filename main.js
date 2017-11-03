@@ -4,6 +4,7 @@ import {combineReducers, createStore, applyMiddleware} from 'redux'
 import {Provider} from 'react-redux'
 import App from './App.jsx'
 import thunk from 'redux-thunk'
+import Root from './Root.jsx'
 
 var initialState = [{id: 1, name: 'Thanh'}, {id: 2, name: 'Henry'}]
 
@@ -53,6 +54,6 @@ const centralState = combineReducers({
 
 ReactDOM.render(
     <Provider store={createStore(centralState, applyMiddleware(thunk))}>
-        <App />
+        <Root />
     </Provider>
     , document.getElementById('app'))
